@@ -1,0 +1,11 @@
+name: 02 - Workflow Events
+on: push
+jobs:
+    first_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Show the trigger"
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "16"
+            - run: echo "Hello, World!"
