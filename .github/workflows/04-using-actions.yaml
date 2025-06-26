@@ -15,7 +15,7 @@ jobs:
               uses: actions/setup-node@v3
             - run: |
                   echo "Print - Runner OS $RUNNER_OS"
-                  run ls
+                  ls
 
             - name: "Setup Node"
               uses: actions/setup-node@v3
