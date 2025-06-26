@@ -1,19 +1,21 @@
 name: "04 - Using Actions"
 
 on:
-    push:
+    workflow_dispatch:
 
 jobs:
     buildbuild:
         runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: 04-using-actions/react-app
         steps:
             - name: "Checkout Code"
               uses: actions/checkout@v4
             - run: echo "Checkout - Runner OS $RUNNER_OS"
 
             - name: "Print directory contents"
-              uses: actions/setup-node@v3
-            - run: |
+              run: |
                   echo "Print - Runner OS $RUNNER_OS"
                   ls
 
@@ -28,4 +30,8 @@ jobs:
               run: |
                   npm ci
                   echo "Running Node.js script..."
-              working-directory: 04-using-actions/react-app
+
+            - name: "Run Unit tests"
+              run: |
+                  npm run test
+                  echo "Running Test script..."
