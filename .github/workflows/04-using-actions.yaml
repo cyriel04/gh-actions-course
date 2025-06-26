@@ -1,0 +1,30 @@
+name: "04 - Using Actions"
+
+on:
+    push:
+
+jobs:
+    buildbuild:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Checkout Code"
+              uses: actions/checkout@v4
+            - run: echo "Checkout - Runner OS $RUNNER_OS"
+
+            - name: "Print directory contents"
+              run: |
+                  echo "Print - Runner OS $RUNNER_OS"
+                  run ls
+
+            - name: "Setup Node"
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "20"
+            - run: |
+                  echo "Running Setup Node.js script..."
+
+            - name: "Install Dependencies"
+              run: |
+                  npm ci
+                  working-directory: ./04-using-actions/react-app
+                  echo "Running Node.js script..."
