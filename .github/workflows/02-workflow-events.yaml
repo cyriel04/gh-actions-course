@@ -8,4 +8,12 @@ jobs:
               uses: actions/setup-node@v3
               with:
                   node-version: "16"
-            - run: echo "Hello, World!"
+            - run: echo "Hello ${{ github.actor }}, World! - ${{ github.event_name }} event"
+    # second_job:
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - name: "Show the trigger"
+    #           uses: actions/setup-node@v3
+    #           with:
+    #               node-version: "16"
+    #         - run: echo "Hello, World!"
