@@ -12,7 +12,8 @@ jobs:
             - run: echo "Checkout - Runner OS $RUNNER_OS"
 
             - name: "Print directory contents"
-              run: |
+              uses: actions/setup-node@v3
+            - run: |
                   echo "Print - Runner OS $RUNNER_OS"
                   run ls
 
