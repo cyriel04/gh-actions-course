@@ -1,0 +1,30 @@
+name: 02 - Workflow Events
+on:
+    push:
+
+jobs:
+    echo_ubuntu:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Show OS"
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "16"
+            - run: echo "Hello LINUX - Runner OS $RUNNER_OS"
+    echo_windows:
+        runs-on: windows-latest
+        steps:
+            - name: "Show OS"
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "16"
+            - run: echo "Hello WINDOWS - Runner OS $RUNNER_OS"
+              shell: bash
+    echo_mac:
+        runs-on: macos-latest
+        steps:
+            - name: "Show OS"
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "16"
+            - run: echo "Hello MAC - Runner OS $RUNNER_OS"
