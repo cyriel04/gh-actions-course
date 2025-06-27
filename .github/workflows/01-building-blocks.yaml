@@ -1,4 +1,4 @@
-name: "01-building-blocks"
+name: "01 - Building Blocks"
 on:
     workflow_dispatch:
 jobs:
