@@ -8,8 +8,21 @@ jobs:
     echo-data:
         runs-on: ubuntu-latest
         steps:
-            - name: "Print ENV variable"
+            - name: "Print inline variable"
               env:
                   my_variable: "Hello, World!"
               run: |
                   echo "The variable is: ${{ env.my_variable }}"
+                  echo "The variable is: ${{ vars.MY_VAR }}"
+
+            - name: "Print repo variable"
+              run: |
+                  echo "The variable is: ${{ vars.MY_VAR }}"
+
+    echo-staging:
+        environment: staging
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Print env variable"
+              run: |
+                  echo "The variable is: ${{ vars.STAGING_VAR }}"
