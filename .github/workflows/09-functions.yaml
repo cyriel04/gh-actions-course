@@ -1,0 +1,24 @@
+name: "09 - Using Functions"
+
+on:
+    pull_request:
+        branches:
+            - main
+    workflow_dispatch:
+
+jobs:
+    echo-1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Print PR title"
+              run: |
+                  echo "${{ github.event.pull_request.title }}"
+            - name: "Print inline function"
+              run: |
+                  cat << EOF
+                  echo "The variable is: ${{ toJson(github.event.pull_request.labels) }}"
+                  EOF
+            - name: "Print if success"
+              if: ${{ success() }}
+              run: |
+                  echo "This is success"
