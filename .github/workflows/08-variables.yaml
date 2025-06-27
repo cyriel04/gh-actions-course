@@ -1,0 +1,15 @@
+name: "08 - Using Variables"
+
+on:
+    push:
+    workflow_dispatch:
+
+jobs:
+    echo-data:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Print ENV variable"
+              env:
+                  my_variable: "Hello, World!"
+              run: |
+                  echo "The variable is: ${{ env.my_variable }}"
