@@ -13,6 +13,5 @@ jobs:
             - name: Echo Event Filters and Activity Types
               run: |
                 echo "Running whenever a PR is opened or synchronized AND base branch is main:"
-                echo "${{ toJson(github.event.pull_request.event_filters) }}"
                 echo "Activity Types:"
-                echo "${{ toJson(github.event.pull_request.activity_types) }}"
+                echo "${{ toJson(github.event.pull_request.state) }}"
