@@ -1,0 +1,21 @@
+name: "07 - Using Expressions"
+run-name: "07 - Using Expressions DEBUG ${{ inputs.debug && 'ON' || 'OFF' }}"
+
+on:
+    push:
+    workflow_dispatch:
+        inputs:
+            debug:
+                description: "Enable debug mode"
+                required: false
+                default: false
+                type: boolean
+
+jobs:
+    echo-data:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "[debug] Print items"
+              if: ${{ inputs.debug }}
+              run: |
+                  echo "I was triggered with debug event"
