@@ -1,9 +1,6 @@
 name: "09 - Using Functions"
 
 on:
-    pull_request:
-        branches:
-            - main
     workflow_dispatch:
 
 jobs:
@@ -22,3 +19,7 @@ jobs:
               if: ${{ success() }}
               run: |
                   echo "This is success"
+            - name: "Print if fails"
+              if: ${{ failure() }}
+              run: |
+                  echo "This is failure"
